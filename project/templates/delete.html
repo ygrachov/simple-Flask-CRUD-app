@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if current_user.is_authenticated %}
+<p>Are you going to permanentely delete {{obj.title}} ?</p>
+<form method="post">
+    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+    <input type="submit" value="Yes, delete">
+    <input type="button" value="Cancel"
+    onclick="window.location.href='{{url_for('Main')}}'">
+</form>
+{% endif %}
+{% endblock %}

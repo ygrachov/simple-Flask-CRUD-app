@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if forums|length < 1 %}
+<p>There are no records yet </p>
+{% else %}
+{% for forum in forums %}
+<ul>
+    <li>
+       <p>{{forum.title|safe}} created by {{forum.user}}
+        {% if current_user == forum.user %}
+        <a href="update/{{forum.id}}">Update</a>
+           <a href="delete/{{forum.id}}">Delete</a></p>
+        {% endif %}
+        <p>{{forum.text|safe}}</p>
+    </li>
+</ul>
+{% endfor %}
+{% endif %}
+{% if current_user.is_authenticated %}
+<a href="{{url_for('create')}}">Start new forum</a>
+<a href="{{url_for('auth.Logout') }}">Logout</a>
+{% else %}
+please <a href="{{ url_for('auth.Login') }}">Log in </a>
+or <a href="{{url_for('auth.Signup')}}">Sign Up</a>
+{% endif %}
+{% endblock %}

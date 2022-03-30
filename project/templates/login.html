@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{{ messages[0]}}
+{% endif %}
+{% endwith %}
+<form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <input type="text" name="login">
+    <input type="text" name="password">
+    <input type="submit" value="Log in">
+</form>
+{% endblock %}
