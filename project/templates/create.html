@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 {% if current_user.is_authenticated %}
-<form method="post">
+<form method="post" class="m-5">
     <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
-    <input type="text" name="title" placeholder="Enter the title ...">
-    <input type="text" name="text" placeholder="Enter your text...">
-    <input type="submit" value="Start forum">
+    <p><input style="width:30%;" type="text" name="title" placeholder="Enter the title ..."></p>
+    <p><input style="width:30%;" type="text" name="text" placeholder="Enter your text..."></p>
+    <p><input type="submit" value="Start forum">
     <input type="button" value="Cancel"
-           onclick="window.location.href='{{url_for('Main')}}'">
+           onclick="window.location.href='{{url_for('Main')}}'"></p>
 </form>
 {% endif %}
 {% endblock %}

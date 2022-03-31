@@ -2,13 +2,13 @@
 {% block content %}
 {% with messages = get_flashed_messages() %}
 {% if messages %}
-        {{ messages[0] }}. Go to <a href="{{ url_for('auth.Login') }}">login page</a>.
+<div style="height:30%; width: 27%;" class="mt-5 font-weight-bold text-danger">{{ messages[0] }} Go to <a href="{{ url_for('auth.Login') }}">login page</a></div>
 {% endif %}
 {% endwith %}
-<form method="post">
+<form class='m-5'  method="post">
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-    <input type="text" name='login' placeholder="Enter login..">
-    <input type="text" name="password" placeholder="Enter a password..">
-    <input type="submit" value="Create user">
+    <p><input style="width:30%;" type="text" name='login' placeholder="Enter login.."></p>
+    <p ><input  style="width:30%;" type="text" name="password" placeholder="Enter a password.."></p>
+    <p><input type="submit" value="Create user"></p>
 </form>
 {% endblock %}

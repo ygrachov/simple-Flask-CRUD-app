@@ -58,7 +58,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-@app.route('/main')
+@app.route('/')
 def Main():
     forums = Forum.query.order_by(Forum.id).all()
     return render_template('main.html', forums=forums, user=current_user)

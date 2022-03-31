@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 {% if current_user.is_authenticated %}
-<p>Are you going to permanentely delete {{obj.title}} ?</p>
+<p class="m-5 mb-2">Are you going to permanently delete <span class="font-weight-bold text-capitalize">{{obj.title}}</span>?</p>
 <form method="post">
     <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
-    <input type="submit" value="Yes, delete">
+    <input class="ml-5" type="submit" value="Yes, delete">
     <input type="button" value="Cancel"
     onclick="window.location.href='{{url_for('Main')}}'">
 </form>
